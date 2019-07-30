@@ -1,4 +1,14 @@
 body {
     font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#recursion {
+    margin: 350px;
+    display: block;
     text-align: center;
+}
+
+a {
+    color: teal;
 }
