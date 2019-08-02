@@ -2,33 +2,34 @@
 
   // Create HTML space and form
   Pts.namespace( this );
-  let space = new HTMLSpace("#pt").setup({bgcolor: "#b80071", resize: true });
+  let space = new HTMLSpace("#pt").setup({bgcolor: "#000", resize: true });
   let form = space.getForm();
 
   // css for testing
   let css = document.createElement("style");
   css.type = "text/css";
-  css.innerHTML = ".pts-rect { font-size: 20vw; line-height: 50vh; overflow: hidden; pointer-events: none}";
+  css.innerHTML = ".pts-text {line-height: 55vh; overflow: hidden; pointer-events: all; font-size: 15vw; transition: font-size 1s;} .pts-text:hover {font-size: 20vw}";
   document.body.appendChild(css);
 
   function recurseMe() {
     space.clear();
 
-    let rects = [];
-    let gap = window.innerWidth*0.12;
-    for (let i = 0; gap * Math.sqrt(i) <= space.size.x; i++){
-        let x = gap*Math.sqrt(i);
-        let rect = new Group( new Pt([x, space.size.y / 5 + 3 * i * Math.sin(x)]), new Pt([space.size.x-x+2, space.size.y]));
-        rects.push(rect);
+    let width = space.size.x;
+    let gap = width*0.12;
+
+    let locations = [];
+
+    for (let i = 0; gap * Math.sqrt(i) <= width; i++){
+      let x = gap*Math.sqrt(i);
+      let y = space.size.y / 5 + 3 * i * Math.sin(x/50);
+
+      locations.push({x: x, y: y});
     }
 
-    // Draw first rectangle(s)
-    for (let i = rects.length-1; i >= 0; i--){
-    form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`rgba(${255-i*10}, ${255-i*5}, ${255-i*20})`).cls(`r1Alt${i}`).rect( rects[i] );
-    }
-
-    for (let i = 0; i < rects.length; i++){
-        document.querySelector(`.r1Alt${i}`).textContent = "me";
+    for (let i = locations.length - 1; i >= 0; i--){
+      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`rgba(${255-i*10}, ${255-i*5}, ${255-i*20})`);
+      form.text([locations[i].x, locations[i].y], "me");
+      console.log([locations[i].x, locations[i].y]);
     }
   }
 
