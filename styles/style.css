@@ -23,4 +23,31 @@ a {
 #pt {
     height: 100vh !important;
     width: 100vw !important;
+
+    pointer-events: none;
+}
+
+#pt-container {
+    background-color: black;
+    pointer-events: none;
+}
+
+.pts-text{
+    /* Prevent flicker */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility:    hidden;
+    -ms-backface-visibility:     hidden;
+
+    overflow: hidden;
+    pointer-events: all;
+    font-size: 15vw;
+    transition: transform 0.2s, opacity 0.2s;
+    transform: scale(1);
+}
+
+.pts-text:hover {
+    transform: scale(1.2);
+    opacity: 1 !important;
+    text-decoration: underline;
 }
