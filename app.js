@@ -1,8 +1,13 @@
 (function() {  
   // Create HTML space and form
   Pts.namespace( this );
-  let space = new HTMLSpace("#pt").setup({bgcolor: "#000", resize: true });
+  let space = new HTMLSpace("#pt").setup({bgcolor: "#fff", resize: true });
   let form = space.getForm();
+
+  const fonts = ["Arial, sans-serif", "Helvetica, sans-serif", "Times New Roman, serif", "Times, serif", "Courier New, monospace",  "Courier, monospace", "Verdana, sans-serif", "Georgia, serif", "Palatino, serif", "Garamond, serif",  "Bookman", "Comic Sans MS", "Trebuchet MS"];
+  const fontVariants = ["normal", "small-caps"];
+  const fontStyles = ["normal", "italic"];
+  const fontWeight = ["normal", "bold"];
 
   function recurseMe() {
     space.clear();
@@ -20,10 +25,16 @@
     }
 
     for (let i = locations.length - 1; i >= 0; i--){
-      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`rgb(${255-i*10}, ${255-i*5}, ${255-i*20})`);
-      form.styleTo("opacity", 1-(0.2+0.8*(i+1)/locations.length));
-      let text = form.text([locations[i].x, locations[i].y], "me");
-      console.log(text);
+      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i*5}, ${100-i*2}%, ${50+i}%)`);
+      form.alpha(1-(0.1+0.5*(i+1)/locations.length));
+
+      form._ctx.style["font-family"] = fonts[Math.floor(Math.random()*fonts.length)];
+      form._ctx.style["font-style"] = fontStyles[Math.floor(Math.random()*fontStyles.length)];
+      form._ctx.style["font-variant"] = fontVariants[Math.floor(Math.random()*fontVariants.length)];
+      form._ctx.style["font-weight"] = fontWeight[Math.floor(Math.random()*fontWeight.length)];
+
+      form.font(12, fontWeight[Math.floor(Math.random() * fontWeight.length)], fontStyles[Math.floor(Math.random()*fontStyles.length)], 1.2, fonts[Math.floor(Math.random()*fonts.length)]);
+      form.text([locations[i].x, locations[i].y], "me");
     }
   }
 
