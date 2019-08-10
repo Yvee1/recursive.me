@@ -44,6 +44,8 @@ a {
     transition: transform 0.2s, opacity 0.2s;
     transform: scale(1);
     z-index: 0;
+
+    text-shadow: 1px 1px whitesmoke, 1px -1px whitesmoke, -1px -1px whitesmoke, -1px 1px whitesmoke;
 }
 
 .pts-text:hover {
@@ -52,7 +54,7 @@ a {
     text-decoration: underline;
     z-index: 1;
 
-    text-shadow: 2px 2px white;
+    text-shadow: 2px 2px black;
 }
 
 .text-container {

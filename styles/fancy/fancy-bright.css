@@ -1,0 +1,12 @@
+body {
+    background-color: cadetblue;
+}
+
+.container-container {
+    border: var(--frame-border) solid black;
+    background: #fff9e5;
+}
+
+.text-container {
+    border: var(--text-border) solid black;
+}

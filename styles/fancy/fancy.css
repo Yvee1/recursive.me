@@ -6,18 +6,13 @@
     --text-margin: 2px;
 }
 
-body {
-    background-color: rgb(0, 66, 0);
-}
-
 .container-container {
     max-width: var(--frame-size);
     height: calc(100vh - 2 * var(--frame-margin));
     width: calc(100vw - 2 * var(--frame-margin));
     margin: var(--frame-margin) auto;
-    border: var(--frame-border) solid black;
 
-    background: #fff9e5;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
 }
 
 .text-container {
@@ -25,21 +20,28 @@ body {
     height: calc(calc(100vh - 2 * var(--frame-margin)) - 2 * var(--text-margin) - 2 * var(--frame-border));
     width: calc(calc(100vw - 2 * var(--frame-margin)) - 2 * var(--text-margin) - 2 * var(--frame-border));
     margin: var(--text-margin);
-    border: var(--text-border) solid black;
 
     overflow: auto;
+    text-align: justify;
+}
+
+.hr-double-down {
+    border: none;
+    border-top: 3px solid black;
+    border-bottom: 1px solid black;
+    height: 5px;
+}
+
+.hr-double-up {
+    border: none;
+    border-top: 1px solid black;
+    border-bottom: 3px solid black;
+    height: 5px;
 }
 
 header {
     margin: 10% auto;
     text-align: center;
-}
-
-.hr-double {
-    border: none;
-    border-top: 3px solid black;
-    border-bottom: 1px solid black;
-    height: 5px;
 }
 
 header h1 {
@@ -51,7 +53,7 @@ header h1 {
 
 header h2 {
     font-style: italic;
-    margin-top: 0px;
+    margin-top: 0.5em;
 
     font-weight: normal;
 }
@@ -73,9 +75,13 @@ main ol {
     list-style-type: upper-roman;
 }
 
+main a {
+    color: black;
+}
+
 h3 {
     font-variant: small-caps;
     font-weight: normal;
 
-    font-size: 130%;
+    font-size: 140%;
 }

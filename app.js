@@ -25,8 +25,8 @@
     }
 
     for (let i = locations.length - 1; i >= 0; i--){
-      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i*5}, ${100-i*2}%, ${50+i}%)`);
-      form.alpha(1-(0.1+0.5*(i+1)/locations.length));
+      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i*5}, ${100-i}%, ${50+i*0.8}%)`);
+      form.alpha(1-(0.1+0.4*(i+1)/locations.length));
 
       form._ctx.style["font-family"] = fonts[Math.floor(Math.random()*fonts.length)];
       form._ctx.style["font-style"] = fontStyles[Math.floor(Math.random()*fontStyles.length)];

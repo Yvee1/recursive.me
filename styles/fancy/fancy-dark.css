@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(-161deg, beige, lightblue );
+}
+
+.container-container {
+    border: var(--frame-border) solid goldenrod;
+    background: #000;
+}
+
+.text-container {
+    border: var(--text-border) solid goldenrod;
+    color: goldenrod;
+}
+
+.hr-double-down {
+    border-top: 3px solid goldenrod;
+    border-bottom: 1px solid goldenrod;
+}
+
+.hr-double-up {
+    border-top: 1px solid goldenrod;
+    border-bottom: 3px solid goldenrod;
+}
+
+main a {
+    color: goldenrod;
+}
+
+header .ornament {
+    width: 200px;
+    margin: auto;
+}
