@@ -4,29 +4,33 @@
   let space = new HTMLSpace("#pt").setup({bgcolor: "#fff", resize: true });
   let form = space.getForm();
 
-  const fonts = ["Arial, sans-serif", "Helvetica, sans-serif", "Times New Roman, serif", "Times, serif", "Courier New, monospace",  "Courier, monospace", "Verdana, sans-serif", "Georgia, serif", "Palatino, serif", "Garamond, serif",  "Bookman", "Comic Sans MS", "Trebuchet MS"];
+  const fonts = ["Arial, sans-serif", "Helvetica, sans-serif", "Times New Roman, serif", "Times, serif", "Courier New, monospace",
+                "Courier, monospace", "Verdana, sans-serif", "Georgia, serif", "Palatino, serif",  
+                "Bookman", "Comic Sans MS", "Trebuchet MS"];
   const fontVariants = ["normal", "small-caps"];
   const fontStyles = ["normal", "italic"];
-  const fontWeight = ["normal", "bold"];
+  const fontWeight = ["light", "normal", "bold"];
 
   function recurseMe() {
     space.clear();
 
-    let width = space.size.x;
-    let gap = width*0.12;
+    const width = space.size.x;
+    const height = space.size.y;
 
-    let locations = [];
+    const gap = 0.4;
+    const amount = Math.floor(2 * Math.PI / gap);
+    const locations = new Array(amount);
 
-    for (let i = 0; gap * Math.sqrt(i) <= width; i++){
-      let x = gap * Math.sqrt(i);
-      let y = 5 * space.size.y / 12 + 3 * i * Math.sin(x/50);
+    for (let angle = 0, i = 0; angle <= 2 * Math.PI; angle += gap, i++){
+      let x = 2*width/5 + Math.cos(angle) * width/3;
+      let y = height/3 + Math.sin(2*angle) * width/8;
 
-      locations.push({x: x, y: y});
+      locations[i] = {x: x, y: y};
     }
 
     for (let i = locations.length - 1; i >= 0; i--){
-      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i*5}, ${100-i}%, ${50+i*0.8}%)`);
-      form.alpha(1-(0.1+0.4*(i+1)/locations.length));
+      form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i/locations.length * 360}, ${100-i/locations.length * 50}%, ${50+i/locations.length * 10}%)`);
+      form.alpha(1-(0.9*(i+1)/locations.length));
 
       form._ctx.style["font-family"] = fonts[Math.floor(Math.random()*fonts.length)];
       form._ctx.style["font-style"] = fontStyles[Math.floor(Math.random()*fontStyles.length)];
