@@ -18,7 +18,7 @@
     let locations = [];
 
     for (let i = 0; gap * Math.sqrt(i) <= width; i++){
-      let x = gap*Math.sqrt(i);
+      let x = gap * Math.sqrt(i);
       let y = 5 * space.size.y / 12 + 3 * i * Math.sin(x/50);
 
       locations.push({x: x, y: y});
