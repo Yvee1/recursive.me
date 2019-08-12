@@ -3,6 +3,17 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
+
+    background-color: whitesmoke;
+}
+
+header h1{
+    position: absolute;
+    font-size: 100vh;
+    margin: 0;
+    left: -20vh;
+
+    color: #333735;
 }
 
 #recursion {
@@ -27,7 +38,6 @@ a {
 }
 
 #pt-container {
-    background-color: white;
     pointer-events: none;
 }
 
@@ -40,16 +50,16 @@ a {
 
     overflow: hidden;
     pointer-events: all;
-    font-size: 15vw;
+    font-size: 10vw;
     transition: transform 0.2s, opacity 0.2s;
-    transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
     z-index: 0;
 
     text-shadow: 1px 1px whitesmoke, 1px -1px whitesmoke, -1px -1px whitesmoke, -1px 1px whitesmoke;
 }
 
 .pts-text:hover {
-    transform: scale(1.2);
+    transform: translate(-50%, -50%) scale(1.2);
     opacity: 1 !important;
     text-decoration: underline;
     z-index: 1;
