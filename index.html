@@ -14,29 +14,35 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pts/0.8.7/pts.min.js" integrity="sha256-ouec+VzE3IgbQF5RRSvu2aVtHDvFeAbGfqltA6d4rVg=" crossorigin="anonymous"></script> -->
     <script src="./pts.min.js"></script>
+    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 </head>
 <body>
-    <!-- <header>
-        <h1>Me</h1>
-    </header> -->
-    <header>
-        <h2>This is a page about, well, you guessed it</h2>
-    </header> 
-    <main>
-        <a href="me.html" id="pt-link">
-            <div id="pt-container">
-                <div id="pt"></div>
-            </div>
-        </a>
-         
-    </main>
+    <div id="overflow-wrapper">
+        <main id="swup">
+            <header id="header">
+                <h2>This is a page about, well, you guessed it</h2>
+            </header>
+            
+            <a href="/me.html" id="pt-link">
+                <div id="pt-container">
+                    <div id="pt"></div>
+                </div>
+            </a>
+        </main>
 
-    <footer>
-        <ul>
-            <h2><a href="https://pages.recursive.me">Github projects</a></h2>
-        </ul>
-        <!-- <a><img id="gh-icon" src="svg/mark-github.svg" width=40 height=40></a> -->
-    </footer>
+        <a href="/me.html" id="big-me" class="transition-enlarge">
+            me
+        </a>
+
+        <!-- <footer>
+            <ul>
+                <h2><a href="https://pages.recursive.me">Github projects</a></h2>
+            </ul> -->
+            <!-- <a><img id="gh-icon" src="svg/mark-github.svg" width=40 height=40></a> -->
+        <!-- </footer> -->
+    </div>
+
     <script src="./app.js"></script>
 </body>
+
 </html>

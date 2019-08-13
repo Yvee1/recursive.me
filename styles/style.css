@@ -1,3 +1,8 @@
+#overflow-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
     width: 100vw;
@@ -5,9 +10,8 @@ body {
 
     background-color: whitesmoke;
 
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    overflow: hidden;
+    position: relative;
 }
 
 header {
@@ -26,10 +30,14 @@ header h2 {
 
 main {
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto 1fr;
     /* padding: 0px 8px; */
     position: relative;
     /* pointer-events: none; */
+
+    width: 100vw;
+    height: 100vh;
+
 }
 
 header h1{
@@ -75,6 +83,7 @@ a {
 }
 
 #pt-container {
+    position: relative;
     pointer-events: none;
     width: 100vw;
     height: 100%;
@@ -96,6 +105,7 @@ a {
     transition: transform 0.2s, opacity 0.2s;
     transform: translate(-50%, -50%) scale(1);
     z-index: 0;
+    opacity: 0.5;
 
     text-shadow: 1px 1px whitesmoke, 1px -1px whitesmoke, -1px -1px whitesmoke, -1px 1px whitesmoke;
 }
@@ -109,14 +119,62 @@ a {
     text-shadow: 2px 2px black;
 }
 
-.big-me {
+#big-me {
+    position: absolute;
+
+    font-size: 20vw;
+    /* line-height: 14vw; */
+    font-family: "Times new Roman", serif;
+    font-style: italic;
+    font-variant: small-caps;
+    font-weight: lighter;
+    z-index: 1;
+    color: red;
+
     text-shadow: 2px 2px black;
+    opacity: 0.7;
+
+    transform: translate(-50%, -50%) scale(1);
+    transition: opacity 0.2s, transform 1.5s, left 1.5s, top 1.5s;
+
+    /* Start invisible */
+    display: none;
 }
 
-.big-me:hover {
+#big-me:hover {
+    opacity: 1;
     text-shadow: 4px 4px black;
 }
 
 .text-container {
     margin: 8px;
+}
+
+/* html.is-animating .transition-enlarge {
+  transform: translate(-50%, -50%) scale(6) !important;
+} */
+
+.huge-me {
+    transform: translate(-50%, -75%) scale(5) !important;
+    opacity: 1 !important;
+    text-shadow: 4px 4px black;
+    pointer-events: none !important;
+
+    left: 33vw !important;
+    top: 42vh !important;
+    font-size: 40vh !important;
+    display: block !important;
+}
+
+main {
+    transition: 1s;
+}
+
+#swup {
+    opacity: 1;
+    transition: opacity 1s;
+}
+
+html.is-changing #swup {
+    opacity: 0;
 }

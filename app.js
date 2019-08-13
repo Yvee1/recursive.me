@@ -1,9 +1,19 @@
-(function() {  
+const swup = new Swup(); // only this line when included with script tag
+init();
+
+swup.on('contentReplaced', init);
+
+const bigMe = document.getElementById('big-me');
+bigMe.addEventListener('click', function(event){
+  this.classList.add("huge-me");
+});
+
+function runPt() {  
   // Create HTML space and form
+  console.log("!")
   Pts.namespace( this );
   let space = new HTMLSpace("#pt").setup({bgcolor: "#fff0", resize: true });
   let form = space.getForm();
-  let test = space.getForm();
 
   const fonts = ["Arial, sans-serif", "Helvetica, sans-serif", "Times New Roman, serif", "Times, serif", "Courier New, monospace",
                 "Courier, monospace", "Verdana, sans-serif", "Georgia, serif", "Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif",  
@@ -17,8 +27,6 @@
   const offset = Math.PI/2;
   const locations = new Array(amount);
   const MEs = new Array(amount);
-
-  let count = 0;
 
   for (let i = 0; i < MEs.length; i++){
     MEs[i] = {};
@@ -34,6 +42,21 @@
     function (time, ftime) {
       form.scope(this);
 
+      if (bigMe.classList.contains("huge-me")){
+        if (window.location.pathname == '/'){
+          bigMe.classList.remove('huge-me');
+        }
+        // console.log(window.visualViewport.width);
+        // bigMe.style.fontSize = "40vh";
+        // bigMe.style.left = `${window.innerWidth/3}px`;
+        // bigMe.style.top = `${5*window.innerHeight/12}px`;
+      }
+
+      else if (window.location.pathname.indexOf('me.html') > -1){
+        bigMe.classList.add('huge-me');
+      }
+
+      else {
       const width = space.size.x;
       const height = space.size.y;
 
@@ -46,8 +69,8 @@
 
       for (let i = locations.length - 1; i >= 0; i--){
         form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${50 + i/locations.length * 310}, ${100-i/locations.length * 50}%, ${50+i/locations.length * 10}%)`);
-        form.alpha(0.5);
 
+        form.styleTo("opacity", "");
         form._ctx.style["font-size"] = "10vw";
         form._ctx.style["line-height"] = "8vw";
         form._ctx.style["font-family"] = MEs[i]["font-family"];
@@ -57,23 +80,18 @@
         form.text([locations[i].x, locations[i].y], "me");
       }
 
-      form._ctx.style["font-size"] = "20vw";
-      form._ctx.style["line-height"] = "14vw";
-      form._ctx.style["font-family"] = "Times New Roman, serif";
-      form._ctx.style["font-style"] = "italic";
-      form._ctx.style["font-variant"] = "small-caps";
-      form._ctx.style["font-weight"] = "lighter";
-      form._ctx.style["z-index"] = 1;
-      form.fillText('red');
-      form.cls("big-me");
-
-      form.alpha(0.9);
-      form.text([width/2, height/2 - 40], "me");
-
-      form.reset();
-      form.cls(false);
+      bigMe.style.left = `${width/2}px`;
+      bigMe.style.top = `${height/2 - 40 + document.getElementById("header").clientHeight}px`;
+      bigMe.style.display = "block";
     }
+  }
   );
 
   space.play();
-})();
+};
+
+function init() {
+  if (document.querySelector('#pt')){
+    runPt();
+  }
+}
