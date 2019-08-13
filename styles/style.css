@@ -34,33 +34,35 @@ header h2 {
 }
 
 .main-me section {
-    padding-top: 10vh;
+    padding-top: 15vh;
+    text-align: justify;
 }
 
 #left-parallelogram {
     height: 100vh;
-    width: 33vw;
-    /* transform: skew(-15.6deg); */
-    background: green;
-    opacity: 0.1;
+    width: 50vw;
     float: left;
-    shape-outside: polygon(calc(100vh / 3.5) 0vh, 0px 100vh, -100px 100vh, -100px 0vh);
-    /* position: absolute;
-    left: 33vw; */
+    /* shape-outside: polygon(0 0, calc(49vw + 25px - 5vh) 0, calc(calc(49vw + 25px - 5vh) - 100vh / 3.5) 100vh, 0 100vh); */
+    /* shape-outside: polygon(0 10vh, calc(50vw + 11px - 10vh) 10vh, calc(calc(50vw + 11px - 10vh) - 80vh / 3.5) 90vh, 0 90vh); */
+    /* shape-outside: polygon(0px 2.26vh,
+                           100.67% 2.19%,
+                           52vw 5vh,
+                           calc(11px - 10vh + 50vw) 10vh,
+                           calc(11px - 32.8571vh + 50vw) 90vh,
+                           calc(50vw + 0.9*calc(11px - 32.8571vh)) 93.56%,
+                           calc(50vw + 0.6*calc(11px - 32.8571vh)) 94.71%,
+                           calc(50vw + 0.63*calc(11px - 32.8571vh)) 99vh, 0px 99vh); */
+    shape-outside: polygon(0px 2.26vh, 100.67% 2.19%, 52vw 5vh, calc(50vw + 0.85 * calc(11px - 10vh)) 10vh, calc(calc(50vw + 0.85 * calc(11px - 10vh)) - 80vh / 3.5) 90vh, calc(50vw + 0.8*calc(11px - 32.8571vh)) 93vh, calc(50vw + 0.6*calc(11px - 32.8571vh)) 94.71%, calc(50vw + 0.63*calc(11px - 32.8571vh)) 99vh, 0px 99vh);
 
-    /* shape-outside: polygon(calc(28.5714vh - 3.3vw) 0vh, -3.3vw 99.84vh, -243px 100vh, -100px 0vh); */
 }
 
-#empty-left {
-    width: 33vw;
-
+#right-parallelogram {
     height: 100vh;
-    background: blue;
-    opacity: 0.1;
-    display: inline-block;
-
-    float: left;
+    width: 50vw;
+    float: right;
+    shape-outside: polygon(calc(0vw + 4vh + 10px + 100vh / 3.5) 0, calc(0vw + 4vh + 10px) 100vh, 50vw 100vh, 50vw 0);
 }
+
 
 .main-grid {
     display: grid;
@@ -169,7 +171,7 @@ a {
     opacity: 0.7;
 
     transform: translate(-50%, -50%) scale(1);
-    transition: opacity 0.2s, transform 1.5s, left 1.5s, top 1.5s;
+    transition: opacity 0.3s, transform 1.5s, left 1.5s, top 1.5s;
 
     /* Start invisible */
     display: none;
@@ -190,7 +192,7 @@ a {
 
 .huge-me {
     transform: translate(-50%, -75%) scale(5) !important;
-    opacity: 0.1 !important;
+    opacity: 1 !important;
     text-shadow: 4px 4px black;
     pointer-events: none !important;
 
