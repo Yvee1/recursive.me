@@ -28,13 +28,47 @@ header h2 {
     margin: 0 0.5rem;
 }
 
-main {
+.main-me {
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-me section {
+    padding-top: 10vh;
+}
+
+#left-parallelogram {
+    height: 100vh;
+    width: 33vw;
+    /* transform: skew(-15.6deg); */
+    background: green;
+    opacity: 0.1;
+    float: left;
+    shape-outside: polygon(calc(100vh / 3.5) 0vh, 0px 100vh, -100px 100vh, -100px 0vh);
+    /* position: absolute;
+    left: 33vw; */
+
+    /* shape-outside: polygon(calc(28.5714vh - 3.3vw) 0vh, -3.3vw 99.84vh, -243px 100vh, -100px 0vh); */
+}
+
+#empty-left {
+    width: 33vw;
+
+    height: 100vh;
+    background: blue;
+    opacity: 0.1;
+    display: inline-block;
+
+    float: left;
+}
+
+.main-grid {
     display: grid;
     grid-template-rows: auto 1fr;
     /* padding: 0px 8px; */
-    position: relative;
     /* pointer-events: none; */
 
+    position: relative;
     width: 100vw;
     height: 100vh;
 
@@ -156,11 +190,11 @@ a {
 
 .huge-me {
     transform: translate(-50%, -75%) scale(5) !important;
-    opacity: 1 !important;
+    opacity: 0.1 !important;
     text-shadow: 4px 4px black;
     pointer-events: none !important;
 
-    left: 33vw !important;
+    left: calc(50vw - 20vh) !important;
     top: 42vh !important;
     font-size: 40vh !important;
     display: block !important;
