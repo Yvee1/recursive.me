@@ -1,16 +1,13 @@
 const swup = new Swup(); // only this line when included with script tag
-init();
 
 swup.on('contentReplaced', init);
 
 const bigMe = document.getElementById('big-me');
-bigMe.addEventListener('click', function(event){
-  this.classList.add("huge-me");
-});
+
+init();
 
 function runPt() {  
   // Create HTML space and form
-  console.log("!")
   Pts.namespace( this );
   let space = new HTMLSpace("#pt").setup({bgcolor: "#fff0", resize: true });
   let form = space.getForm();
@@ -68,7 +65,7 @@ function runPt() {
       }
 
       for (let i = locations.length - 1; i >= 0; i--){
-        form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${50 + i/locations.length * 310}, ${100-i/locations.length * 50}%, ${50+i/locations.length * 10}%)`);
+        form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i/locations.length * 360}, ${100}%, ${60}%)`);
 
         form.styleTo("opacity", "");
         // form._ctx.style["font-size"] = "10vmin";
@@ -83,6 +80,9 @@ function runPt() {
       bigMe.style.left = `${width/2}px`;
       bigMe.style.top = `${height/2 - 40 + document.getElementById("header").clientHeight}px`;
       bigMe.style.display = "block";
+
+      // let elements = document.getElementsByClassName('pt-text');
+      // for (elements)
     }
   }
   );
@@ -93,5 +93,29 @@ function runPt() {
 function init() {
   if (document.querySelector('#pt')){
     runPt();
+  }
+
+  const ptLink = document.getElementById('pt-link');
+
+  function colorChange(event){
+    bigMe.style.color = event.srcElement.style.color;
+  }
+
+  bigMe.addEventListener('click', function(event){
+    if (ptLink){
+      ptLink.removeEventListener('mouseover', colorChange);
+    }
+    this.classList.add("huge-me");
+  });
+
+  if (ptLink){
+    ptLink.addEventListener('click', function(event){
+      colorChange(event);
+      this.removeEventListener('mouseover', colorChange);
+    })
+  }
+
+  if (ptLink){
+    ptLink.addEventListener('mouseover', colorChange);
   }
 }
