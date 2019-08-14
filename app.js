@@ -65,7 +65,7 @@ function runPt() {
       }
 
       for (let i = locations.length - 1; i >= 0; i--){
-        form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i/locations.length * 360}, ${100}%, ${60}%)`);
+        form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${i/locations.length * 360}, ${100}%, ${50}%)`);
 
         form.styleTo("opacity", "");
         // form._ctx.style["font-size"] = "10vmin";
