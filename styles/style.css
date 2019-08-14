@@ -138,6 +138,7 @@ a {
 
     pointer-events: all;
     font-size: 10vw;
+    line-height: 8vw;
     transition: transform 0.2s, opacity 0.2s;
     transform: translate(-50%, -50%) scale(1);
     z-index: 0;
@@ -158,7 +159,7 @@ a {
 #big-me {
     position: absolute;
 
-    font-size: 20vw;
+    font-size: 40vh;
     /* line-height: 14vw; */
     font-family: "Times new Roman", serif;
     font-style: italic;
@@ -167,11 +168,11 @@ a {
     z-index: 1;
     color: red;
 
-    text-shadow: 2px 2px black;
+    text-shadow: -0.05vw 0.2vmin black;
     opacity: 0.7;
 
-    transform: translate(-50%, -50%) scale(1);
-    transition: opacity 0.3s, transform 1.5s, left 1.5s, top 1.5s;
+    transform: translate(-50%, -50%) scale(0.75);
+    transition: opacity 0.3s, transform 0.3s, left 0.1s, top 0.1s, text-shadow 0.3s;
 
     /* Start invisible */
     display: none;
@@ -179,7 +180,20 @@ a {
 
 #big-me:hover {
     opacity: 1;
-    text-shadow: 4px 4px black;
+    text-shadow: -0.1vw 0.4vmin 0.4px black,
+                 -0.1vw 0.4vmin 5px black;
+ 
+    transform: translate(-50%, -50%) scale(0.8);
+}
+
+@media only screen and (max-width: 500px) {
+    #big-me{
+        transform: translate(-50%, -50%) scale(0.4);
+    }
+
+    #big-me:hover {
+        transform: translate(-50%, -50%) scale(0.5);
+    }
 }
 
 .text-container {
@@ -193,7 +207,8 @@ a {
 .huge-me {
     transform: translate(-50%, -75%) scale(5) !important;
     opacity: 1 !important;
-    text-shadow: 4px 4px black;
+    text-shadow: -2px 0.8vmin 0.4px black,
+                 -2px 0.8vmin 5px black !important;
     pointer-events: none !important;
 
     left: calc(50vw - 20vh) !important;
@@ -211,6 +226,10 @@ main {
     transition: opacity 1s;
 }
 
-html.is-changing #swup {
+html.is-animating #swup {
     opacity: 0;
+}
+
+html.is-changing #big-me {
+    transition: transform 1.5s ease 0s, left 1.5s, top 1.5s;
 }

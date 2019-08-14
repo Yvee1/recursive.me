@@ -71,8 +71,8 @@ function runPt() {
         form.strokeOnly("rgba(0, 0, 0, 0)", 1).fillText(`hsl(${50 + i/locations.length * 310}, ${100-i/locations.length * 50}%, ${50+i/locations.length * 10}%)`);
 
         form.styleTo("opacity", "");
-        form._ctx.style["font-size"] = "10vw";
-        form._ctx.style["line-height"] = "8vw";
+        // form._ctx.style["font-size"] = "10vmin";
+        // form._ctx.style["line-height"] = "8vw";
         form._ctx.style["font-family"] = MEs[i]["font-family"];
         form._ctx.style["font-style"] = MEs[i]["font-style"];
         form._ctx.style["font-variant"] = MEs[i]["font-variant"];
