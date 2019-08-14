@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'times_new_romanregular';
+    src: url('times-webfont.woff2') format('woff2'),
+         url('times-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #overflow-wrapper {
     overflow: hidden;
     position: relative;
@@ -200,7 +208,7 @@ footer #gh-icon {
 
     font-size: 40vh;
     /* line-height: 14vw; */
-    font-family: "Times new Roman", serif;
+    font-family: "Times new Roman", "times_new_romanregular";
     font-style: italic;
     font-variant: small-caps;
     font-weight: lighter;
