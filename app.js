@@ -97,25 +97,28 @@ function init() {
 
   const ptLink = document.getElementById('pt-link');
 
-  function colorChange(event){
+  const ptClick = (event) => {
+    ptHover(event);
+    ptLink.removeEventListener('mouseover', ptHover);
+    ptLink.removeEventListener('click', ptClick);
+  }
+
+  const ptHover = (event) => {
     bigMe.style.color = event.srcElement.style.color;
+  }
+
+  if (ptLink){
+    ptLink.addEventListener('click', ptClick);
+
+    ptLink.addEventListener('mouseover', ptHover);
   }
 
   bigMe.addEventListener('click', function(event){
     if (ptLink){
-      ptLink.removeEventListener('mouseover', colorChange);
+      ptLink.removeEventListener('mouseover', ptHover);
+      ptLink.removeEventListener('mouseover', ptClick);
     }
     this.classList.add("huge-me");
   });
 
-  if (ptLink){
-    ptLink.addEventListener('click', function(event){
-      colorChange(event);
-      this.removeEventListener('mouseover', colorChange);
-    })
-  }
-
-  if (ptLink){
-    ptLink.addEventListener('mouseover', colorChange);
-  }
 }
