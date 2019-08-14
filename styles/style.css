@@ -31,11 +31,54 @@ header h2 {
 .main-me {
     width: 100vw;
     height: 100vh;
+    /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
+    /* font-size: calc(16px + 6 * ((100vw - 320px) / 680)); */
 }
 
 .main-me section {
-    padding-top: 15vh;
     text-align: justify;
+}
+
+#text {
+    padding-top: 40vh;
+}
+
+#links {
+    text-align: center;
+    /* font-size: 1rem; */
+}
+
+#links li {
+    display: inline;
+    padding: 0 10px;
+}
+
+#links li {
+    border-right: 1px solid black;
+}
+
+#links li:last-child {
+    border: none;
+}
+
+#links a {
+    color: rgb(40, 40, 40);
+    text-transform: lowercase;
+    font-family: verdana, helvetica, arial, sans-serif;
+
+    text-decoration: none;
+}
+
+#links a:hover {
+    text-decoration: underline;
+}
+
+#links svg {
+    vertical-align: bottom;
+}
+
+#twitter {
+    fill:#28AAE1;
 }
 
 #left-parallelogram {
@@ -60,7 +103,7 @@ header h2 {
     height: 100vh;
     width: 50vw;
     float: right;
-    shape-outside: polygon(calc(0vw + 4vh + 10px + 100vh / 3.5) 0, calc(0vw + 4vh + 10px) 100vh, 50vw 100vh, 50vw 0);
+    shape-outside: polygon(calc(100vh / 3.5 + 0.6 * calc(4vh + 10px)) 0, calc(0.6 * calc(4vh + 10px)) 100vh, 50vw 100vh, 50vw 0);
 }
 
 
@@ -106,10 +149,6 @@ footer #gh-icon {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-}
-
-a {
-    color: rgb(255, 51, 51);
 }
 
 #pt {
