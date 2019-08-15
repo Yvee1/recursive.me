@@ -200,7 +200,7 @@ footer #gh-icon {
 
     letter-spacing: 0.04em;
 
-    font-size: 34vh;
+    font-size: 27vh;
     /* line-height: 14vw; */
     font-family: 'Playfair Display';
     font-style: italic;
@@ -252,9 +252,9 @@ footer #gh-icon {
                  -2px 0.8vmin 5px black !important;
     pointer-events: none !important;
 
-    left: calc(50vw - 17vh) !important;
-    top: 39vh !important;
-    font-size: 34vh !important;
+    left: calc(50vw - 18vh) !important;
+    top: 50vh !important;
+    font-size: 27vh !important;
     display: block !important;
 }
 
