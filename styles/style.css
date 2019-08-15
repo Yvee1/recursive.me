@@ -1,3 +1,8 @@
+:root {
+    --big-me-x: 50vw;
+    --big-me-y: 50vh;
+}
+
 #overflow-wrapper {
     overflow: hidden;
     position: relative;
@@ -197,7 +202,8 @@ footer #gh-icon {
 
 #big-me {
     position: absolute;
-
+    left: 0px;
+    top: 0px;
     letter-spacing: 0.04em;
 
     font-size: 27vh;
@@ -212,11 +218,11 @@ footer #gh-icon {
     text-shadow: -0.05vw 0.2vmin black;
     opacity: 0.7;
 
-    transform: translate(-50%, -50%) scale(0.75);
-    transition: opacity 0.3s, transform 0.3s, left 0.1s, top 0.1s, text-shadow 0.3s;
+    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.75);
+    transition: opacity 0.3s, transform 0.3s, text-shadow 0.3s;
 
     /* Start invisible */
-    display: none;
+    /* display: none; */
 }
 
 #big-me:hover {
@@ -224,7 +230,7 @@ footer #gh-icon {
     text-shadow: -0.1vw 0.4vmin 0.4px black,
                  -0.1vw 0.4vmin 5px black;
  
-    transform: translate(-50%, -50%) scale(0.8);
+    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.8);
 }
 
 @media only screen and (max-width: 500px) {
@@ -246,14 +252,14 @@ footer #gh-icon {
 } */
 
 .huge-me {
-    transform: translate(-50%, -75%) scale(5) !important;
+    transform: translateX(-50%) translateX(50vw) translateX(-18vh) translateY(-75%) translateY(50vh) scale(5) !important;
     opacity: 1 !important;
     text-shadow: -2px 0.8vmin 0.4px black,
                  -2px 0.8vmin 5px black !important;
     pointer-events: none !important;
 
-    left: calc(50vw - 18vh) !important;
-    top: 50vh !important;
+    /* left: calc(50vw - 18vh) !important; */
+    /* top: 50vh !important; */
     font-size: 27vh !important;
     display: block !important;
 }
@@ -272,5 +278,5 @@ html.is-animating #swup {
 }
 
 html.is-changing #big-me {
-    transition: transform 1.5s ease 0s, left 1.5s, top 1.5s;
+    transition: transform 1.5s;
 }

@@ -77,9 +77,11 @@ function runPt() {
         form.text([locations[i].x, locations[i].y], "me");
       }
 
-      bigMe.style.left = `${width/2}px`;
-      bigMe.style.top = `${height/2 - 40 + document.getElementById("header").clientHeight}px`;
-      bigMe.style.display = "block";
+      document.documentElement.style.setProperty('--big-me-x', `${width/2}px`);
+      document.documentElement.style.setProperty('--big-me-y', `${height/2 - 40 + document.getElementById("header").clientHeight}px`);
+      // bigMe.style.left = `${width/2}px`;
+      // bigMe.style.top = `${height/2 - 40 + document.getElementById("header").clientHeight}px`;
+      // bigMe.style.display = "block";
 
       // let elements = document.getElementsByClassName('pt-text');
       // for (elements)
