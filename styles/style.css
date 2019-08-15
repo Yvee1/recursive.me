@@ -1,11 +1,3 @@
-@font-face {
-    font-family: 'times_new_romanregular';
-    src: url('fonts/timesi-webfont.woff2') format('woff2'),
-         url('fonts/timesi-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
 #overflow-wrapper {
     overflow: hidden;
     position: relative;
@@ -206,9 +198,11 @@ footer #gh-icon {
 #big-me {
     position: absolute;
 
-    font-size: 40vh;
+    letter-spacing: 0.04em;
+
+    font-size: 34vh;
     /* line-height: 14vw; */
-    font-family: "Times new Roman", "times_new_romanregular";
+    font-family: 'Playfair Display';
     font-style: italic;
     font-variant: small-caps;
     font-weight: lighter;
@@ -258,9 +252,9 @@ footer #gh-icon {
                  -2px 0.8vmin 5px black !important;
     pointer-events: none !important;
 
-    left: calc(50vw - 20vh) !important;
-    top: 42vh !important;
-    font-size: 40vh !important;
+    left: calc(50vw - 17vh) !important;
+    top: 39vh !important;
+    font-size: 34vh !important;
     display: block !important;
 }
 
