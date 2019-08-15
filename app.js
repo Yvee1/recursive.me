@@ -53,7 +53,7 @@ function runPt() {
         bigMe.classList.add('huge-me');
       }
 
-      else if (false) {
+      else {
       const width = space.size.x;
       const height = space.size.y;
 
