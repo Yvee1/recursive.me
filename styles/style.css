@@ -226,8 +226,6 @@ footer #gh-icon {
 }
 
 #big-me:hover {
-    /* will-change: transform; */
-
     opacity: 1;
     filter: drop-shadow(-0.1vw 0.4vmin 0.4px black);
     transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.8);
@@ -267,12 +265,12 @@ main {
     transition: 1s;
 }
 
-#swup {
+.transition-fade {
     opacity: 1;
     transition: opacity 1s;
 }
 
-html.is-animating #swup {
+html.is-animating .transition-fade {
     opacity: 0;
 }
 
