@@ -103,7 +103,7 @@ header h2 {
     height: 100vh;
     width: 50vw;
     float: right;
-    shape-outside: polygon(calc(100vh / 3.5 + 0.6 * calc(4vh + 10px)) 0, calc(0.6 * calc(4vh + 10px)) 100vh, 50vw 100vh, 50vw 0);
+    shape-outside: polygon(calc(100vh / 3.5 + 0.6 * calc(4vh - 20px)) 0, calc(0.6 * calc(4vh - 20px)) 100vh, 50vw 100vh, 50vw 0);
 }
 
 
