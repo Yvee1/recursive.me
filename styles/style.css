@@ -215,11 +215,11 @@ footer #gh-icon {
     z-index: 1;
     color: red;
 
-    text-shadow: -0.05vw 0.2vmin black;
+    filter: drop-shadow(-0.05vw 0.2vmin 0.4px black);
     opacity: 0.7;
 
     transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.75);
-    transition: opacity 0.3s, transform 0.3s, text-shadow 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
 
     /* Start invisible */
     /* display: none; */
@@ -227,9 +227,7 @@ footer #gh-icon {
 
 #big-me:hover {
     opacity: 1;
-    text-shadow: -0.1vw 0.4vmin 0.4px black,
-                 -0.1vw 0.4vmin 5px black;
- 
+    filter: drop-shadow(-0.1vw 0.4vmin 0.4px black);
     transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.8);
 }
 
@@ -254,8 +252,7 @@ footer #gh-icon {
 .huge-me {
     transform: translateX(-50%) translateX(50vw) translateX(-18vh) translateY(-75%) translateY(50vh) scale(5) !important;
     opacity: 1 !important;
-    text-shadow: -2px 0.8vmin 0.4px black,
-                 -2px 0.8vmin 5px black !important;
+    filter: drop-shadow(-0.1vw 0.4vmin 0.4px black);
     pointer-events: none !important;
 
     /* left: calc(50vw - 18vh) !important; */
