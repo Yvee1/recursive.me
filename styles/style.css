@@ -13,10 +13,12 @@ body {
     width: 100vw;
     height: 100vh;
 
-    background-color: whitesmoke;
+    background-color: #00A85D;
+    color: white;
 
     overflow: hidden;
     position: relative;
+
 }
 
 header {
@@ -40,26 +42,27 @@ header h2 {
     /* font-size: calc(16px + 6 * ((100vw - 320px) / 680)); */
 }
 
-.main-me section {
+#text {
+    padding-top: 40vh;
+    font-size: calc(0.75vmin + 1.1em);
     text-align: justify;
 }
 
-#text {
-    padding-top: 40vh;
+@media only screen and (max-width: 500px){
+    #text{
+        padding-top: 30vh;
+    }
 }
 
 #links {
     text-align: center;
-    /* font-size: 1rem; */
+    font-size: 1.05em;
 }
 
 #links li {
     display: inline;
     padding: 0 10px;
-}
-
-#links li {
-    border-right: 1px solid black;
+    border-right: 1px solid white;
 }
 
 #links li:last-child {
@@ -67,7 +70,7 @@ header h2 {
 }
 
 #links a {
-    color: rgb(40, 40, 40);
+    color: inherit; 
     text-transform: lowercase;
     font-family: verdana, helvetica, arial, sans-serif;
 
@@ -83,7 +86,11 @@ header h2 {
 }
 
 #twitter {
-    fill:#28AAE1;
+    fill: white;
+}
+
+#github {
+    fill: white;
 }
 
 #left-parallelogram {
@@ -213,22 +220,28 @@ footer #gh-icon {
     font-variant: small-caps;
     font-weight: lighter;
     z-index: 1;
-    color: red;
 
-    filter: drop-shadow(-0.05vw 0.2vmin 0.4px black);
+    /* filter: drop-shadow(-0.05vw 0.2vmin 0.4px black); */
     opacity: 0.7;
 
-    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.75);
+    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.9);
     transition: opacity 0.3s, transform 0.3s;
 
+    color: white;
     /* Start invisible */
     /* display: none; */
+
+    /* background: linear-gradient(60deg, red, yellow, red, yellow, red);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1px white;
+    color: transparent; */
 }
 
 #big-me:hover {
     opacity: 1;
-    filter: drop-shadow(-0.1vw 0.4vmin 0.4px black);
-    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.8);
+    /* filter: drop-shadow(-0.1vw 0.4vmin 0.4px black); */
+    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-50%) translateY(var(--big-me-y))  scale(0.95);
 }
 
 @media only screen and (max-width: 500px) {
@@ -252,7 +265,7 @@ footer #gh-icon {
 .huge-me {
     transform: translateX(-50%) translateX(50vw) translateX(-18vh) translateY(-75%) translateY(50vh) scale(5) !important;
     opacity: 1 !important;
-    filter: drop-shadow(-0.1vw 0.4vmin 0.4px black);
+    /* filter: drop-shadow(-0.1vw 0.4vmin 0.4px black); */
     pointer-events: none !important;
 
     /* left: calc(50vw - 18vh) !important; */
@@ -267,7 +280,7 @@ main {
 
 .transition-fade {
     opacity: 1;
-    transition: opacity 1s;
+    transition: opacity 0.5s;
 }
 
 html.is-animating .transition-fade {
