@@ -114,7 +114,7 @@ function init() {
   }
     
   if (document.querySelector('#pt')){
-    runPt();
+    // runPt();
   }
 
   const ptLink = document.getElementById('pt-link');
