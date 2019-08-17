@@ -13,7 +13,10 @@ body {
     width: 100vw;
     height: 100vh;
 
-    background-color: #00A85D;
+    /* From https://www.transparenttextures.com/ */
+    background-color: #00a85d;
+    background-image: url("/img/pattern.png");
+    
     color: white;
 
     overflow: hidden;
@@ -119,16 +122,10 @@ header h2 {
 }
 
 
-.main-grid {
-    display: grid;
-    grid-template-rows: auto 1fr;
-    /* padding: 0px 8px; */
-    /* pointer-events: none; */
-
-    position: relative;
+.main-index {
     width: 100vw;
     height: 100vh;
-
+    padding: 2vmin 2vmin;
 }
 
 header h1{
@@ -231,16 +228,16 @@ footer #gh-icon {
 #big-me:hover {
     opacity: 1;
     /* filter: drop-shadow(-0.1vw 0.4vmin 0.4px black); */
-    transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-60%) translateY(var(--big-me-y))  scale(0.95);
+    transform: translateX(-50%) translateX(50vw) translateY(-60%) translateY(50vh)  scale(0.95);
 }
 
 @media only screen and (max-width: 500px) {
     #big-me{
-        transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-60%) translateY(var(--big-me-y)) scale(0.4);
+        transform: translateX(-50%) translateX(50vw) translateY(-60%) translateY(50vh) scale(0.4);
     }
 
     #big-me:hover {
-        transform: translateX(-50%) translateX(var(--big-me-x)) translateY(-60%) translateY(var(--big-me-y)) scale(0.5);
+        transform: translateX(-50%) translateX(50vw) translateY(-60%) translateY(50vh) scale(0.5);
     }
 }
 
@@ -283,4 +280,10 @@ html.is-changing #big-me {
 
 .alt {
     color: black;
+}
+
+#page-border {
+    border: calc(2px + 0.3vmin) solid white ;
+    width: calc(100vw - 4vmin);
+    height: calc(100vh - 4vmin);
 }
