@@ -76,38 +76,59 @@ function runPt() {
   space.play();
 };
 
+function doMe(){
+  bigMe.classList.add('huge-me');
+  window.addEventListener('resize', positionText);
+}
+
+function positionText(){
+  let textEl = document.getElementById('text');
+  if (textEl){
+    let computedStyle = window.getComputedStyle(textEl);
+    let elementHeight = textEl.clientHeight;
+    elementHeight -= parseFloat(computedStyle.paddingTop);
+    textEl.style.paddingTop = `${window.innerHeight / 2 - elementHeight / 2}px`;
+  }
+}
+
+function doIndex(){
+  bigMe.classList.remove('huge-me');
+  bigMe.classList.add('transition-enlarge');
+}
+
 function linkClickHandler() {
-  console.log("Link clicked!");
+  // console.log("Link clicked!");
 
   if (window.location.pathname == '/'){
-    bigMe.classList.add('huge-me');
-    console.log("On index page");
+    // console.log("On index page");
+    doMe();
   }
 
   if (window.location.pathname.indexOf('me.html') > -1){
-    bigMe.classList.remove('huge-me');
-    bigMe.classList.add('transition-enlarge');
-    console.log("On me.html");
+    // console.log("On me.html");
+    doIndex();
   }
 }
 
 function popStateHandler() {
-  console.log("Page change!");
+  // console.log("Page change!");
 
   if (window.location.pathname.indexOf('me.html') > -1){
     bigMe.classList.add('huge-me');
-    console.log("Now on me.html");
+    // console.log("Now on me.html");
   }
 
   if (window.location.pathname == '/'){
     bigMe.classList.remove('huge-me');
     bigMe.classList.add('transition-enlarge');
-    console.log("Now on index");
+    // console.log("Now on index");
   }
 }
 
 function init() {
-  console.log("init");
+  // console.log("init");
+  positionText();
+  window.addEventListener('resize', positionText);
 
   if (window.location.pathname.indexOf('me.html') > -1){
     bigMe.classList.remove('transition-enlarge');
