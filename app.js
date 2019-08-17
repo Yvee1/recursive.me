@@ -87,7 +87,7 @@ function positionText(){
     let computedStyle = window.getComputedStyle(textEl);
     let elementHeight = textEl.clientHeight;
     elementHeight -= parseFloat(computedStyle.paddingTop);
-    textEl.style.paddingTop = `${window.innerHeight / 2 - elementHeight / 2}px`;
+    textEl.style.paddingTop = `${document.body.clientHeight / 2 - elementHeight / 2}px`;
   }
 }
 
