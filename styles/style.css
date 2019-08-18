@@ -14,10 +14,11 @@ body {
     height: 100vh;
 
     /* From https://www.transparenttextures.com/ */
-    background-color: #00a85d;
-    background-image: url("/img/pattern.png");
     
     color: white;
+    
+    background-color: #00a85d;
+    background-image: url("/img/pattern.png");
 
     overflow: hidden;
     position: relative;
@@ -43,6 +44,10 @@ header h2 {
     height: 100vh;
     /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
     /* font-size: calc(16px + 6 * ((100vw - 320px) / 680)); */
+
+    background-color: #00a85d;
+    background-image: url("/img/pattern.png");
+    background-size: 512px 512px;
 }
 
 #text {
@@ -126,6 +131,9 @@ header h2 {
     width: 100vw;
     height: 100vh;
     padding: 2vmin 2vmin;
+
+    background-color: #0076BF;
+    background-image: url("/img/pattern.png");
 }
 
 header h1{
@@ -233,11 +241,11 @@ footer #gh-icon {
 
 @media only screen and (max-width: 500px) {
     #big-me{
-        transform: translateX(-50%) translateX(50vw) translateY(-60%) translateY(50vh) scale(0.4);
+        transform: translateX(-50%) translateX(50vw) translateY(-55%) translateY(50vh) scale(0.4);
     }
 
     #big-me:hover {
-        transform: translateX(-50%) translateX(50vw) translateY(-60%) translateY(50vh) scale(0.5);
+        transform: translateX(-50%) translateX(50vw) translateY(-55%) translateY(50vh) scale(0.5);
     }
 }
 
@@ -282,8 +290,61 @@ html.is-changing #big-me {
     color: black;
 }
 
-#page-border {
+#page {
     border: calc(2px + 0.3vmin) solid white ;
     width: calc(100vw - 4vmin);
     height: calc(100vh - 4vmin);
+
+    display: grid;
+    grid-template-areas:    ". . ."
+                            ". m ."
+                            ". . .";
+
+    grid-template-rows: 1fr 45vh 1fr;
+    grid-template-columns: 1fr 45vh 1fr;
+}
+
+@media only screen and (max-width: 500px) {
+    #page {
+        grid-template-rows: 1fr 24vh 1fr;
+        grid-template-columns: 1fr 24vh 1fr;
+    }
+}
+
+#square {
+    grid-area: m;
+    background-color: black;
+    border: 5px solid black;
+
+    transition: transform 1.5s;
+}
+
+#rotated-square {
+    position: relative;
+    overflow: hidden;
+
+    grid-area: m;
+    transform: rotate(45deg);
+
+    border: 5px solid black;
+
+    transition: transform 1.5s;
+}
+
+#rotated-square:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    z-index: -1;
+
+    background-image: url(/img/pattern.png);
+    background-color: #00a85d;
+    background-size: 9vh 9vh;
+    background-repeat: repeat;
+    
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
