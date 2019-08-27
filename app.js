@@ -21,7 +21,8 @@ function doMe(){
     rotSqr.classList.add("rot-transition");
   } else{
     document.getElementById("square").style.transform = "scale(8)";
-    document.getElementById("rotated-square").style.transform = "scale(10)";
+    rotSqr.style.transform = `rotate(45deg) scale(${Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight)})`;
+    rotSqr.classList.add("rot-transition");
   }
   window.addEventListener('resize', positionText);
   window.addEventListener('resize', scaleRotSqr);
@@ -42,7 +43,6 @@ function scaleRotSqr(){
 }
 
 function doIndex(){
-  console.log("HII");
   bigMe.classList.remove('huge-me');
   bigMe.classList.add('transition-enlarge');
 
@@ -68,6 +68,7 @@ function popStateHandler() {
 
   if (window.location.pathname.indexOf('me.html') > -1){
     bigMe.classList.add('huge-me');
+    window.addEventListener('resize', scaleRotSqr);
     // console.log("Now on me.html");
   }
 
@@ -84,13 +85,17 @@ function popStateHandler() {
 function init() {
   // console.log("init");
   bigMe.classList.remove('me-transition');
-  rotSqr.classList.remove("rot-transition");
+  if (rotSqr){
+    rotSqr.classList.remove("rot-transition");
+  }
 
   positionText();
   window.addEventListener('resize', positionText);
 
   if (window.location.pathname.indexOf('me.html') > -1){
+    scaleRotSqr();
     bigMe.classList.remove('transition-enlarge');
+    window.addEventListener('resize', scaleRotSqr);
   }
     
   if (document.querySelector('#pt')){

@@ -336,3 +336,21 @@ html.is-animating .transition-fade {
 
     border: 5px solid black;
 }
+
+@media only screen and (max-width: 500px) {
+    #rotated-square {
+        position: absolute;
+        z-index: 0;
+        left: calc(2vmin + (100vw - 4vmin - 24vh) / 2);
+        top: calc(2vmin + (100vh - 4vmin - 24vh) / 2);
+        overflow: hidden;
+        width: 24vh;
+        height: 24vh;
+
+        background-color: #00a85d;
+        grid-area: m;
+        transform: rotate(45deg);
+
+        border: 5px solid black;
+    }
+}
