@@ -17,6 +17,7 @@
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pts/0.8.7/pts.min.js" integrity="sha256-ouec+VzE3IgbQF5RRSvu2aVtHDvFeAbGfqltA6d4rVg=" crossorigin="anonymous"></script> -->
     <!-- <script src="./pts.min.js"></script> -->
+    <script type="text/javascript" src="https://rawgit.com/patriciogonzalezvivo/glslCanvas/master/dist/GlslCanvas.js"></script>
     <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
 </head>
 <body>
@@ -24,7 +25,6 @@
         <main id="swup" class="main-index">
             <div id="page">
                 <div id="square"></div>
-                <div id="rotated-square"></div>
             </div>
             <!-- <a href="/me.html" id="pt-link">
                 <div id="pt-container">
@@ -33,6 +33,7 @@
             </a> -->
         </main>
 
+        <canvas class="glslCanvas" data-fragment-url="shader.frag" id="rotated-square"></canvas>
         <a href="/me.html" id="big-me" class="transition-enlarge">
             ME
         </a>

@@ -5,19 +5,26 @@ swup.on('clickLink', linkClickHandler);
 swup.on('popState', popStateHandler);
 
 const bigMe = document.getElementById('big-me');
+const rotSqr = document.getElementById("rotated-square")
 
 init();
 
 function doMe(){
   bigMe.classList.add('huge-me');
+  bigMe.classList.add('me-transition');
   if (window.innerWidth > 500){
-    document.getElementById("square").style.transform = "scale(5)";
-    document.getElementById("rotated-square").style.transform = "rotate(45deg) scale(5)";
+    document.getElementById("square").style.transform = "scale(4)";
+    // rotSqr.style.transform = `rotate(45deg)
+    //                           scaleX(${1.1 * document.body.clientWidth / rotSqr.clientWidth})
+    //                           scaleY(${1.1 * document.body.clientHeight / rotSqr.clientHeight})`;
+    rotSqr.style.transform = `rotate(45deg) scale(${Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight)})`;
+    rotSqr.classList.add("rot-transition");
   } else{
-    document.getElementById("square").style.transform = "scale(10)";
-    document.getElementById("rotated-square").style.transform = "rotate(45deg) scale(10)";
+    document.getElementById("square").style.transform = "scale(8)";
+    document.getElementById("rotated-square").style.transform = "scale(10)";
   }
   window.addEventListener('resize', positionText);
+  window.addEventListener('resize', scaleRotSqr);
 }
 
 function positionText(){
@@ -30,9 +37,16 @@ function positionText(){
   }
 }
 
+function scaleRotSqr(){
+  rotSqr.style.transform = `rotate(45deg) scale(${Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight)})`;
+}
+
 function doIndex(){
+  console.log("HII");
   bigMe.classList.remove('huge-me');
   bigMe.classList.add('transition-enlarge');
+
+  window.removeEventListener('resize', scaleRotSqr);
 }
 
 function linkClickHandler() {
@@ -61,11 +75,17 @@ function popStateHandler() {
     bigMe.classList.remove('huge-me');
     bigMe.classList.add('transition-enlarge');
     // console.log("Now on index");
+    const rotSqr = document.getElementById("rotated-square");
+    rotSqr.style.transform = "rotate(45deg)";
+    window.removeEventListener('resize', scaleRotSqr);
   }
 }
 
 function init() {
   // console.log("init");
+  bigMe.classList.remove('me-transition');
+  rotSqr.classList.remove("rot-transition");
+
   positionText();
   window.addEventListener('resize', positionText);
 

@@ -42,12 +42,14 @@ header h2 {
 .main-me {
     width: 100vw;
     height: 100vh;
+    position: relative;
+    z-index: 1;
     /* font-size: calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width]))); */
     /* font-size: calc(16px + 6 * ((100vw - 320px) / 680)); */
 
-    background-color: #00a85d;
-    background-image: url("/img/pattern.png");
-    background-size: 512px 512px;
+    /* background-color: #00a85d; */
+    /* background-image: url("/img/pattern.png"); */
+    /* background-size: 512px 512px; */
 }
 
 #text {
@@ -269,10 +271,6 @@ footer #gh-icon {
     display: block !important;
 }
 
-main {
-    transition: 1s;
-}
-
 .transition-fade {
     opacity: 1;
     transition: opacity 0.5s;
@@ -282,7 +280,11 @@ html.is-animating .transition-fade {
     opacity: 0;
 }
 
-html.is-changing #big-me {
+.me-transition {
+    transition: transform 1.5s !important;
+}
+
+.rot-transition {
     transition: transform 1.5s;
 }
 
@@ -320,31 +322,17 @@ html.is-changing #big-me {
 }
 
 #rotated-square {
-    position: relative;
+    position: absolute;
+    z-index: 0;
+    left: calc(2vmin + (100vw - 4vmin - 45vh) / 2);
+    top: calc(2vmin + (100vh - 4vmin - 45vh) / 2);
     overflow: hidden;
+    width: 45vh;
+    height: 45vh;
 
+    background-color: #00a85d;
     grid-area: m;
     transform: rotate(45deg);
 
     border: 5px solid black;
-
-    transition: transform 1.5s;
-}
-
-#rotated-square:before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    z-index: -1;
-
-    background-image: url(/img/pattern.png);
-    background-color: #00a85d;
-    background-size: 9vh 9vh;
-    background-repeat: repeat;
-    
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
 }
