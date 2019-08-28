@@ -13,15 +13,17 @@ function doMe(){
   bigMe.classList.add('huge-me');
   bigMe.classList.add('me-transition');
   if (window.innerWidth > 500){
-    document.getElementById("square").style.transform = "scale(4)";
+    const scale = Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight);
+    document.getElementById("square").style.transform = `scale(${scale})`;
     // rotSqr.style.transform = `rotate(45deg)
     //                           scaleX(${1.1 * document.body.clientWidth / rotSqr.clientWidth})
     //                           scaleY(${1.1 * document.body.clientHeight / rotSqr.clientHeight})`;
-    rotSqr.style.transform = `rotate(45deg) scale(${Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight)})`;
+    rotSqr.style.transform = `rotate(45deg) scale(${scale})`;
     rotSqr.classList.add("rot-transition");
   } else{
-    document.getElementById("square").style.transform = "scale(8)";
-    rotSqr.style.transform = `rotate(45deg) scale(${Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight)})`;
+    const scale = Math.max(1.5 * document.body.clientWidth / rotSqr.clientWidth, 1.5 * document.body.clientHeight / rotSqr.clientHeight);
+    document.getElementById("square").style.transform = `scale(${scale})`;
+    rotSqr.style.transform = `rotate(45deg) scale(${scale})`;
     rotSqr.classList.add("rot-transition");
   }
   window.addEventListener('resize', positionText);
