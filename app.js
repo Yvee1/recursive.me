@@ -5,11 +5,30 @@ swup.on('clickLink', linkClickHandler);
 swup.on('popState', popStateHandler);
 
 const bigMe = document.getElementById('big-me');
-const rotSqr = document.getElementById("rotated-square")
+const rotSqr = document.getElementById("rotated-square");
+let themeSwitch = document.getElementById("theme-switch");
+const sandbox = new GlslCanvas(rotSqr);
+let darkMode = false;
+sandbox.load(light);
+
+const mql1 = window.matchMedia('(prefers-color-scheme: dark')
+mql1.addListener(e => {
+  if (e.matches){
+    toDark();
+  } else {
+    toLight();
+  }
+});
+// const mql2 = window.matchMedia('(prefers-color-scheme: light')
+// mql2.addListener(toLight);
 
 init();
 
 function doMe(){
+  themeSwitch = document.getElementById("theme-switch");
+  if (themeSwitch){
+    themeSwitch.addEventListener('click', doThemeSwitch);
+  }
   bigMe.classList.add('huge-me');
   bigMe.classList.add('me-transition');
   if (window.innerWidth > 500){
@@ -45,6 +64,10 @@ function scaleRotSqr(){
 }
 
 function doIndex(){
+  themeSwitch = document.getElementById("theme-switch");
+  if (themeSwitch){
+    themeSwitch.addEventListener('click', doThemeSwitch);
+  }
   bigMe.classList.remove('huge-me');
   bigMe.classList.add('transition-enlarge');
 
@@ -67,6 +90,10 @@ function linkClickHandler() {
 
 function popStateHandler() {
   // console.log("Page change!");
+  themeSwitch = document.getElementById("theme-switch");
+  if (themeSwitch){
+    themeSwitch.addEventListener('click', doThemeSwitch);
+  }
 
   if (window.location.pathname.indexOf('me.html') > -1){
     bigMe.classList.add('huge-me');
@@ -86,6 +113,10 @@ function popStateHandler() {
 
 function init() {
   // console.log("init");
+  themeSwitch = document.getElementById("theme-switch");
+  if (themeSwitch){
+    themeSwitch.addEventListener('click', doThemeSwitch);
+  }
   bigMe.classList.remove('me-transition');
   if (rotSqr){
     rotSqr.classList.remove("rot-transition");
@@ -130,4 +161,35 @@ function init() {
     this.classList.add("huge-me");
   });
 
+}
+
+function doThemeSwitch(event){
+  console.log("tick");
+  if (darkMode) {
+    toLight();
+  } else {
+    toDark();
+  }
+}
+
+function toLight(){
+  darkMode = false;
+  sandbox.load(light);
+  document.documentElement.style.setProperty("--bg-color", "#0076BF");
+  document.documentElement.style.setProperty("--border-style", "solid");
+  document.documentElement.style.setProperty("--border-color", "white");
+  document.documentElement.style.setProperty("--alt-color", "black");
+  document.documentElement.style.setProperty("--alt-weight", "normal");
+  document.documentElement.style.setProperty("--switch-color", "#780000AA");
+}
+
+function toDark(){
+  darkMode = true;
+  sandbox.load(dark);
+  document.documentElement.style.setProperty("--bg-color", "rgb(51, 51, 51)");
+  document.documentElement.style.setProperty("--border-style", "double");
+  document.documentElement.style.setProperty("--border-color", "#b92f2f");
+  document.documentElement.style.setProperty("--alt-color", "#ff0000");
+  document.documentElement.style.setProperty("--alt-weight", "bold");
+  document.documentElement.style.setProperty("--switch-color", "#0076BFAA");
 }

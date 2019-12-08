@@ -23,13 +23,14 @@
 </head>
 <body>
     <div id="overflow-wrapper">
+    
         
     <main id="swup" class="main-me">
         <div id="left-parallelogram"></div>
         <div id="right-parallelogram"></div>
 
         <section id="text" class="transition-fade">
-            Hello, my name is <span class="alt">Steven van den Broek</span>. I'm a math and computer science student, interested in web development, design and creative coding.
+            Hello, my name is <span class="alt">Steven van den Broek</span>. I'm a math and computer science student, and like to program in my free time. In particular I like to do creative coding in Haskell, Javascript and GLSL. 
             <nav>
             <ul id="links">
                     <!-- <li><a id="about-me" href="/about-me.html">about me</a></li>               -->
@@ -50,7 +51,10 @@
         
     </main>
     
-    <canvas class="glslCanvas" data-fragment-url="shader.frag" id="rotated-square"></canvas>
+    <script src="light.frag"></script>
+    <script src="dark.frag"></script>
+    <!-- <canvas class="glslCanvas" data-fragment-url="dark.frag" id="rotated-square"></canvas> -->
+    <canvas class="glslCanvas" id="rotated-square"></canvas>
     <a href="/me.html" id="big-me" class="huge-me">
         ME
     </a>

@@ -26,6 +26,9 @@
         <main id="swup" class="main-index">
             <div id="page">
                 <div id="square"></div>
+                <div id="theme-switch-container">
+                    <span id="theme-switch">⚸</span>
+                </div>
             </div>
             <!-- <a href="/me.html" id="pt-link">
                 <div id="pt-container">
@@ -34,7 +37,10 @@
             </a> -->
         </main>
 
-        <canvas class="glslCanvas" data-fragment-url="shader.frag" id="rotated-square"></canvas>
+        <script src="light.frag"></script>
+        <script src="dark.frag"></script>
+        <!-- <canvas class="glslCanvas" data-fragment-url="dark.frag" id="rotated-square"></canvas> -->
+        <canvas class="glslCanvas" id="rotated-square"></canvas>
         <a href="/me.html" id="big-me" class="transition-enlarge">
             ME
         </a>

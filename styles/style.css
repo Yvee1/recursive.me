@@ -1,11 +1,32 @@
 :root {
     --big-me-x: 50vw;
     --big-me-y: 50vh;
+    --bg-color: #0076BF;
+    --border-style: solid;
+    --border-color: white;
+    --alt-color: black;
+    --alt-weight: normal;
+    --switch-color: #000000AA;
 }
 
 #overflow-wrapper {
     overflow: hidden;
     position: relative;
+}
+
+#theme-switch-container {
+    grid-area: s;
+    text-align: center;
+}
+
+#theme-switch {
+    cursor: pointer;
+    /* position: fixed; */
+    /* right: 49vw; */
+    font-size: 48px;
+    font-weight: bold;
+    font-family: 'Playfair Display';
+    color: var(--switch-color);
 }
 
 body {
@@ -17,7 +38,7 @@ body {
     
     color: white;
     
-    background-color: #00a85d;
+    background-color: var(--bg-color);
     background-image: url("/img/pattern.png");
 
     overflow: hidden;
@@ -134,7 +155,8 @@ header h2 {
     height: 100vh;
     padding: 2vmin 2vmin;
 
-    background-color: #0076BF;
+    /* background-color: #0076BF; */
+    background-color: var(--bg-color);
     background-image: url("/img/pattern.png");
 }
 
@@ -289,16 +311,18 @@ html.is-animating .transition-fade {
 }
 
 .alt {
-    color: black;
+    color: var(--alt-color);
+    font-weight: var(--alt-weight);
 }
 
 #page {
-    border: calc(2px + 0.3vmin) solid white ;
+    /* border: calc(2px + 0.3vmin) solid white; */
+    border: calc(2px + 0.3vmin) var(--border-style) var(--border-color);
     width: calc(100vw - 4vmin);
     height: calc(100vh - 4vmin);
 
     display: grid;
-    grid-template-areas:    ". . ."
+    grid-template-areas:    ". s ."
                             ". m ."
                             ". . .";
 

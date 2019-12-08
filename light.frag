@@ -1,6 +1,8 @@
+const light = `
 precision highp float;
 
 uniform float u_time;
+uniform vec2 u_mouse;
 uniform vec2 u_resolution;
 
 void main () {
@@ -11,3 +13,4 @@ void main () {
     vec3 color = mix(colorB, colorA, smoothstep(-1., 1., vUv.y * cos( u_time + 20.) + vUv.x * cos(u_time * 2.) + vUv.x * cos(u_time * .3 + 40.)));
     gl_FragColor = vec4(color, 1.);
 }
+`
